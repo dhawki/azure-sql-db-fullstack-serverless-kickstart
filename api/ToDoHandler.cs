@@ -29,7 +29,8 @@ namespace api
         {            
             _db.Add(new ToDo { Id=1, Title="Hello World!", Completed=true } );
             _db.Add(new ToDo { Id=2, Title="World, hello!", Completed=false } );
-            _nextId = 3;
+            _db.Add(new ToDo { Id = 3, Title = "Get ducks", Completed = false });
+            _nextId = 4;
         }
         
         [FunctionName("Get")]
