@@ -15,6 +15,7 @@
 	<section class="todoapp">
 		<header class="header">
 			<h1>todos</h1>
+			<h4>Welcome <span id="userwelcome">Guest</span></h4>
 			<input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo"
 				@keyup.enter="addTodo" />
 		</header>
@@ -240,9 +241,11 @@
 			const { clientPrincipal } = payload;
 			if (clientPrincipal?.userId != null )
 			{
-				document.getElementById("login").innerHTML = "Welcome " + clientPrincipal.userDetails;				
+				document.getElementById("login").innerHTML = "Welcome " + clientPrincipal.userDetails;	
+                document.getElementById("userwelcome").innerHTML = clientPrincipal.userDetails;
 			} else {
 				document.getElementById("logoff").style.display = "none"
+				document.getElementById("userwelcome").innerHTML = "Guest";
 			}
 		}
 
